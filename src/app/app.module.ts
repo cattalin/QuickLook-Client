@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; 
 import { NgModule } from '@angular/core';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+import { DataService } from 'app/services/data.service';
 
 import { HomePageComponent } from './pages/homepage/homepage.component';
 
@@ -8,7 +13,9 @@ import { HomePageComponent } from './pages/homepage/homepage.component';
     HomePageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(DataService)
   ],
   providers: [],
   bootstrap: [HomePageComponent]

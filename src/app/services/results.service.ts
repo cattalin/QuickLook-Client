@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Result } from '../models/result';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResultsService {
 
-  constructor() { }
+  SERVER_URL: string = "http://localhost:8080/api";
+  constructor(private httpClient: HttpClient) { }
 
-  getList(){
-    return of([
-      new Result( "title1", "url1" ),
-      new Result( "title2", "url2" ),
-      new Result( "title3", "url3" ),
-    ])
+  getList() {
+    return this.httpClient.get(`${this.SERVER_URL}/results`);
   }
 }
