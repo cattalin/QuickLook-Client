@@ -5,9 +5,10 @@ import { Result } from '../models/result';
 @Injectable({
   providedIn: 'root'
 })
-export class DataService implements InMemoryDbService {
+export class MockedDataService implements InMemoryDbService {
 
   constructor() { }
+  
   createDb() {
     let results = [
       new Result(1, "title1", "url1"),

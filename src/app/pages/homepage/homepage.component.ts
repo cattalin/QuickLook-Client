@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultsService } from '../../services/results.service';
-import { from } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })

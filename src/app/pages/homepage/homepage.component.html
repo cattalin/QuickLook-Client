@@ -8,6 +8,10 @@
       <!-- @{ await Html.RenderPartialAsync("_SearchInputPartial", Model); } -->
   </div>
 
+  <app-search-result>
+    
+  </app-search-result>
+
   <ul>
     <li *ngFor="let result of this.results">
       {{ result.title }}

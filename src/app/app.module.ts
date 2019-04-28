@@ -1,23 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
-import { DataService } from 'app/services/data.service';
+import { MockedDataService } from '@app/services/mocked-data.service';
 
 import { HomePageComponent } from './pages/homepage/homepage.component';
+import { ResultsPageComponent } from './pages/results-page/results-page.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
+import { AppComponent } from './app.component';
+
+const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'results', component: ResultsPageComponent },
+  { path: '**', component: NotFoundPageComponent },
+]
 
 @NgModule({
-  declarations: [
-    HomePageComponent
-  ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    InMemoryWebApiModule.forRoot(DataService)
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true }
+    ),
+    InMemoryWebApiModule.forRoot(MockedDataService)
+  ],
+  declarations: [
+    HomePageComponent,
+    ResultsPageComponent,
+    NotFoundPageComponent,
+    
+    AppComponent,
+    NavbarComponent,
+    SearchbarComponent,
+    SearchResultComponent,
   ],
   providers: [],
-  bootstrap: [HomePageComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
