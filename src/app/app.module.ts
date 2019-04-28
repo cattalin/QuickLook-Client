@@ -14,6 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { AppComponent } from './app.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -27,7 +28,6 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true }
     ),
     InMemoryWebApiModule.forRoot(MockedDataService)
   ],
@@ -40,6 +40,7 @@ const routes: Routes = [
     NavbarComponent,
     SearchbarComponent,
     SearchResultComponent,
+    SearchResultsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

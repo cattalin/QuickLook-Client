@@ -14,6 +14,7 @@ export class MockedDataService implements InMemoryDbService {
       new Result(1, "title1", "url1"),
       new Result(2, "title2", "url2"),
       new Result(3, "title3", "url3"),
+      new Result(4, "title4", "url4"),
     ];
 
     return { results };
