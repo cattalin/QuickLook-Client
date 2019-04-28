@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Result } from '@app/models/result';
 import { ResultsService } from '@app/services/results.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-results-page',
@@ -10,15 +11,26 @@ import { ResultsService } from '@app/services/results.service';
 export class ResultsPageComponent implements OnInit {
 
   private results: Result[];
+  private searchedContent: string;
 
-  constructor(private resultsService: ResultsService) { }
+  constructor(
+    private resultsService: ResultsService,
+    private route: ActivatedRoute,
+  ) {
 
-  ngOnInit() {
-    this.getResults()
-        .subscribe(results => this.results = results);
   }
 
-  getResults() {
-    return this.resultsService.getList();
+  ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        this.searchedContent = params.searchedContent;
+        this.getResults(this.searchedContent)
+          .subscribe(results => this.results = results);
+      });
+
+  }
+
+  getResults(searchedContent: string) {
+    return this.resultsService.getList(this.searchedContent || "");
   }
 }

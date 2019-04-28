@@ -16,8 +16,9 @@ export class HomePageComponent implements OnInit {
   }
 
   onSearchStarted(searchedContent: string) {
-    console.log(searchedContent);
-    this.router.navigate([`/results`], { queryParams: { searchedContent: searchedContent } })
+    if (searchedContent != null && searchedContent != "") {
+      this.router.navigate([`/results`], { queryParams: { searchedContent: searchedContent } })
+    }
   }
 
 }

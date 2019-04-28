@@ -20,6 +20,7 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'results', component: ResultsPageComponent },
+  { path: 'results/:searchedContent', component: ResultsPageComponent },
   { path: '**', component: NotFoundPageComponent },
 ]
 

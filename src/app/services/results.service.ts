@@ -11,7 +11,7 @@ export class ResultsService {
   SERVER_URL: string = "http://localhost:8080/api";
   constructor(private httpClient: HttpClient) { }
 
-  getList(): Observable<Result[]> {
+  getList(searchedContent: string): Observable<Result[]> {
     return this.httpClient.get<Result[]>(`${this.SERVER_URL}/results`)
   }
 }
