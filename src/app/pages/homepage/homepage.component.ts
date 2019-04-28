@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResultsService } from '../../services/results.service';
-import { Result } from '@app/models/result';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -9,16 +8,16 @@ import { Result } from '@app/models/result';
 })
 export class HomePageComponent implements OnInit {
 
-  private results: Result[];
+  constructor(private router: Router) {
 
-  constructor(private resultsService: ResultsService) { }
-
-  ngOnInit() {
-    this.getResults()
-        .subscribe(results => this.results = results);
   }
 
-  getResults() {
-    return this.resultsService.getList();
+  ngOnInit(): void {
   }
+
+  onSearchStarted(searchedContent: string) {
+    console.log(searchedContent);
+    this.router.navigate([`/results`], { queryParams: { searchedContent: searchedContent } })
+  }
+
 }

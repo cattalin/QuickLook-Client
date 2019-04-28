@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Result } from '@app/models/result';
+import { ResultsService } from '@app/services/results.service';
 
 @Component({
   selector: 'app-results-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsPageComponent implements OnInit {
 
-  constructor() { }
+  private results: Result[];
+
+  constructor(private resultsService: ResultsService) { }
 
   ngOnInit() {
+    this.getResults()
+        .subscribe(results => this.results = results);
   }
 
+  getResults() {
+    return this.resultsService.getList();
+  }
 }

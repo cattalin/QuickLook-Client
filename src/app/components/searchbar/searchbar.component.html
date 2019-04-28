@@ -1,11 +1,3 @@
-<form>
-    <div class="form-group">
-      <label for="searched-content">Search</label>
-      <input type="text" class="form-control" id="searched-content" required>
-    </div>
+<input type="text" class="form-control" id="searchedContent" required [(ngModel)]="searchedContent" name="searchedContent">
 
-    <button type="submit" class="btn btn-success">Submit</button>
-
-  </form>
-
-<button (click)="onSearch()">Click me!</button>
+<button (click)="onSearch()" class="btn btn-success">Search</button>

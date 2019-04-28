@@ -8,7 +8,6 @@
     <!-- @{ await Html.RenderPartialAsync("_SearchInputPartial", Model); } -->
   </div>
 
-  <app-search-results [results]="results">
-  </app-search-results>
+  <app-searchbar (searchStarted)="onSearchStarted($event)"></app-searchbar>
 
 </div>

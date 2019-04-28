@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MockedDataService } from '@app/services/mocked-data.service';
@@ -24,6 +25,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(
