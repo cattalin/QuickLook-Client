@@ -1,3 +1,16 @@
-<input type="text" class="form-control" id="searchedContent" required [(ngModel)]="searchedContent" name="searchedContent">
+<div class="input-group search-partial mb-3">
+    <input type="text" 
+        class="form-control" 
+        id="searchedContent" 
+        required 
+        [(ngModel)]="searchedContent"
+        name="searchedContent">
 
-<button (click)="onSearch()" class="btn btn-success">Search</button>
+    <div class="input-group-append">
+        <button (click)="onSearch()" class="btn input-group-text">
+            <img class="in-search" src="../../../assets/images/small-logo.png">
+        </button>
+
+    </div>
+
+</div>

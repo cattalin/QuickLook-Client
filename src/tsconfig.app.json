@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig.json",
-  "baseUrl": "./",
+  "baseUrl": "src",
   "paths": {
     "@app/*": [
       "app/*"

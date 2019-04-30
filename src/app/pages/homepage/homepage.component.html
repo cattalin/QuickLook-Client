@@ -1,13 +1,10 @@
 <div class="jumbotron vertical-center m-0">
 
   <div class="container text-center search-container">
-    <!-- <a href="@Url.Action("Search", "Search", null)"> -->
     <a>
-      <!-- <img class="search-logo mb-5" src="~/images/New Project.png" alt="logo" /> -->
+      <img class="search-logo mb-5" src="../../../assets/images/large-logo.png" alt="logo" />
     </a>
-    <!-- @{ await Html.RenderPartialAsync("_SearchInputPartial", Model); } -->
+    <app-searchbar (searchStarted)="onSearchStarted($event)"></app-searchbar>
   </div>
-
-  <app-searchbar (searchStarted)="onSearchStarted($event)"></app-searchbar>
 
 </div>

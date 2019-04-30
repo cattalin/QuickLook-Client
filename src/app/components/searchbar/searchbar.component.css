@@ -1,1 +1,26 @@
-@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+
+.input-group-append > .btn {
+    border-left: none;
+}
+
+.input-group-append > .btn:focus, .btn:active:focus, .btn.active:focus,
+.btn.focus, .btn:active.focus, .btn.active.focus {
+    outline: none;
+}
+.main-search:focus, .input-group-append:active, .main-search:active, .input-group-append:focus, .input-group-text:focus, .input-group-text:active {
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.input-group-text {
+    background-color: white !important;
+    cursor: pointer;
+}
+
+.in-search {
+    width: 25px;
+    height: 25px;
+    margin-top: 0;
+}
+
