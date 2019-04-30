@@ -11,10 +11,10 @@ export class MockedDataService implements InMemoryDbService {
   
   createDb() {
     let results = [
-      new Result(1, "title1", "url1"),
-      new Result(2, "title2", "url2"),
-      new Result(3, "title3", "url3"),
-      new Result(4, "title4", "url4"),
+      new Result(1, "title1", "desc desc desc desc desc desc desc desc desc desc", ["highlight<b>found here</b> asdasda"], "url1"),
+      new Result(2, "title2", "desc desc desc desc desc desc desc desc desc desc", ["highlight<b>found here</b> asdasda"], "url2"),
+      new Result(3, "title3", "desc desc desc desc desc desc desc desc desc desc", ["highlight<b>found here</b> asdasda"], "url3"),
+      new Result(4, "title4", "desc desc desc desc desc desc desc desc desc desc", ["highlight<b>found here</b> asdasda"], "url4"),
     ];
 
     return { results };

@@ -1,2 +1,33 @@
+<!-- <a [href]="result.url">{{ result.title }}</a> -->
+<div class="result-card px-2 py-2 mb-4">
 
-<a [href]="result.url">{{ result.title }}</a>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 class="overflowed-text mb-0">
+                {{ result.title }}
+            </h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overflowed-text">
+                {{ result.description }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-md-10">
+            <a href="@result.Url">
+                <div class="overflowed-text">
+                    {{ result.url }}
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div *ngFor="let highlight of result.highlights" class="col-md-12 p-0">
+        {{highlight}}
+    </div>
+</div>

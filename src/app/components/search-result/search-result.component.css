@@ -1,0 +1,15 @@
+.result-card {
+    cursor: pointer;
+    max-width: 800px;
+}
+
+.result-card:hover {
+    border: 1px solid #eaeaea;
+    /* border-radius: 5px; */
+}
+
+.overflowed-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
