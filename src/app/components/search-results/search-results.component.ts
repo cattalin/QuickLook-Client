@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { Result } from '@app/models/result';
+import { SearchHit } from '@app/models/search-hit';
 
 @Component({
   selector: 'app-search-results',
@@ -9,7 +9,7 @@ import { Result } from '@app/models/result';
 export class SearchResultsComponent implements OnInit {
 
   @Input()
-  private results: Result[];
+  private searchHits: SearchHit[];
   private master: string = 'test';
 
   constructor() { }

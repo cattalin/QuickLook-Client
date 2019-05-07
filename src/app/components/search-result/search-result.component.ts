@@ -1,5 +1,5 @@
+import { SearchHit } from './../../models/search-hit';
 import { Component, OnInit, Input } from '@angular/core';
-import { Result } from '@app/models/result';
 
 @Component({
   selector: 'app-search-result',
@@ -8,7 +8,7 @@ import { Result } from '@app/models/result';
 })
 export class SearchResultComponent implements OnInit {
 
-  @Input() result: Result;
+  @Input() searchHit: SearchHit;
 
   constructor() { }
 

@@ -32,7 +32,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
     ),
-    InMemoryWebApiModule.forRoot(MockedDataService)
+    // InMemoryWebApiModule.forRoot(MockedDataService)
   ],
   declarations: [
     HomePageComponent,

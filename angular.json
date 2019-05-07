@@ -58,7 +58,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "QuickLook-Client:build"
+            "browserTarget": "QuickLook-Client:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

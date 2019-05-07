@@ -1,7 +1,7 @@
+import { SearchResult } from '@app/models/search-result';
 import { Component, OnInit } from '@angular/core';
-import { Result } from '@app/models/result';
-import { ResultsService } from '@app/services/results.service';
 import { ActivatedRoute } from '@angular/router';
+import { SearchResultsService } from '@app/services/search-results.service';
 
 @Component({
   selector: 'app-results-page',
@@ -10,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResultsPageComponent implements OnInit {
 
-  private results: Result[];
+  private searchResult: SearchResult;
   private searchedContent: string;
 
   constructor(
-    private resultsService: ResultsService,
+    private resultsService: SearchResultsService,
     private route: ActivatedRoute,
   ) {
 
@@ -25,7 +25,10 @@ export class ResultsPageComponent implements OnInit {
       .subscribe(params => {
         this.searchedContent = params.searchedContent;
         this.getResults(this.searchedContent)
-          .subscribe(results => this.results = results);
+          .subscribe(searchResult => {
+            console.log(searchResult)
+            this.searchResult = searchResult}
+            );
       });
 
   }
