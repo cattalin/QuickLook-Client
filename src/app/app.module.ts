@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MockedDataService } from '@app/services/mocked-data.service';
@@ -16,6 +18,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -32,7 +35,7 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
     ),
-    // InMemoryWebApiModule.forRoot(MockedDataService)
+    MDBBootstrapModule.forRoot()
   ],
   declarations: [
     HomePageComponent,
@@ -44,8 +47,10 @@ const routes: Routes = [
     SearchbarComponent,
     SearchResultComponent,
     SearchResultsComponent,
+    PaginationComponent,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

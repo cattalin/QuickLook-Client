@@ -6,7 +6,7 @@ import { SearchResultsService } from '@app/services/search-results.service';
 @Component({
   selector: 'app-results-page',
   templateUrl: './results-page.component.html',
-  styleUrls: ['./results-page.component.css']
+  styleUrls: ['./results-page.component.scss']
 })
 export class ResultsPageComponent implements OnInit {
 
