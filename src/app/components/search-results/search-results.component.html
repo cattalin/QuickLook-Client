@@ -1,6 +1,10 @@
-<div class="container body-content" *ngFor="let searchHit of searchHits">
-  <app-search-result [searchHit]="searchHit"></app-search-result>
+<div class="container">
+    <div *ngFor="let searchHit of searchHits">
+        <app-search-result [searchHit]="searchHit"></app-search-result>
+    </div>
 </div>
+
+
 
 
 

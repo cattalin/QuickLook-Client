@@ -1,33 +1,24 @@
-<!-- <a [href]="searchHit.url">{{ searchHit.title }}</a> -->
-<div class="searchHit-card px-2 py-2 mb-4">
+<mdb-card class="mb-4">
 
-    <div class="row">
-        <div class="col-md-12">
-            <h5 class="overflowed-text mb-0">
-                {{ searchHit.title }}
-            </h5>
-        </div>
-    </div>
+        <!--Card content-->
+        <mdb-card-body>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="overflowed-text">
-                {{ searchHit.description }}
-            </div>
-        </div>
-    </div>
+            <!--Title-->
+            <mdb-card-title>
+                <h5> {{ searchHit.title }}</h5>
 
-    <div class="row mb-1">
-        <div class="col-md-10">
-            <a href="@searchHit.Url">
-                <div class="overflowed-text">
-                    {{ searchHit.url }}
+                <span class="color-og"> {{ searchHit.url }}</span>
+            </mdb-card-title>
+            <hr>
+            
+            <!--Text-->
+            <mdb-card-text class="mb-0">
+                <div *ngFor="let highlight of searchHit.highlights" class="">
+                    {{highlight}}
                 </div>
-            </a>
-        </div>
-    </div>
+            </mdb-card-text>
 
-    <div *ngFor="let highlight of searchHit.highlights" class="col-md-12 p-0">
-        {{highlight}}
-    </div>
-</div>
+        </mdb-card-body>
+
+
+</mdb-card>

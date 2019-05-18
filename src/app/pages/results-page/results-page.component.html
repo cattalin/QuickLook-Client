@@ -1,12 +1,26 @@
-<app-navbar>
-</app-navbar>
+<div class="row">
+    <div class="col-12 background-black">
+        <app-navbar></app-navbar>
+    </div>
+</div>
 
-<app-search-results [searchHits]="searchResult? searchResult.searchHits : []">
-</app-search-results>
+<div class="container-fluid mt-5">
 
-<app-pagination>
-</app-pagination>
+    <div class="row">
+        <!-- <div class="col-md-4 col-lg-2">
+
+        </div> -->
+        <div class="col-md-12">
+            <section>
+                <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>
+            </section>
+
+            <section>
+                <app-pagination></app-pagination>
+            </section>
+        </div>
+    </div>
 
 
 
-<button type="button" mdbBtn color="primary" mdbWavesEffect>Primary</button>
+</div>

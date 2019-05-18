@@ -19,6 +19,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -48,6 +49,7 @@ const routes: Routes = [
     SearchResultComponent,
     SearchResultsComponent,
     PaginationComponent,
+    SidebarComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
