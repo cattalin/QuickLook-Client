@@ -1,3 +1,5 @@
+import { LoginComponent } from './../../components/login/login.component';
+// import { MDBModalRef, MDBModalService } from 'ng-uikit-pro-standard';
 import { SearchResult } from '@app/models/search-result';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';

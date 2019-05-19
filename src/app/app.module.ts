@@ -20,6 +20,8 @@ import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -50,6 +52,8 @@ const routes: Routes = [
     SearchResultsComponent,
     PaginationComponent,
     SidebarComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
