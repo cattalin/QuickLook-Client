@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
 
   login() {
@@ -29,10 +30,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(loginModel).subscribe(res => {
       document.getElementById("modal-close").click();
-    // this.sessionService.setToken(res.access_token, this.rememberMe.value);
+      this.sessionService.setToken(res.token, true);
       // this.authService.getProfile().subscribe(profile => {
       //   this.sessionService.setCurrentUser(profile);
-      //   this.router.navigateByUrl(this.returnUrl);
+      //   // this.router.navigateByUrl(this.returnUrl);
       // })
     });
   }
