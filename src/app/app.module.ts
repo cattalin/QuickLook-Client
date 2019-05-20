@@ -4,11 +4,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { ToastrModule } from 'ngx-toastr';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MockedDataService } from '@app/services/mocked-data.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
 import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -38,7 +37,9 @@ const routes: Routes = [
     RouterModule.forRoot(
       routes,
     ),
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     HomePageComponent,
