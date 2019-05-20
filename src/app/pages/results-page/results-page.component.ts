@@ -12,6 +12,7 @@ export class ResultsPageComponent implements OnInit {
 
   searchResult: SearchResult;
   searchedContent: string;
+  currentPage: number;
 
   constructor(
     private resultsService: SearchResultsService,
@@ -24,29 +25,33 @@ export class ResultsPageComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.searchedContent = params.searchedContent;
-      this.getResults(this.searchedContent)
-        .subscribe(searchResult => {
-          this.searchResult = searchResult
-        });
+      this.getResults(this.searchedContent);
     });
   }
 
   onSearchStarted(searchedContent: string) {
     if (searchedContent != null && searchedContent != "") {
       this.router.navigate([], {
-          relativeTo: this.activatedRoute,
-          queryParams: { searchedContent: searchedContent }, 
-          queryParamsHandling: "merge", 
+        relativeTo: this.activatedRoute,
+        queryParams: { searchedContent: searchedContent },
+        queryParamsHandling: "merge",
       })
-      
-      this.getResults(searchedContent)
-        .subscribe(searchResult => {
-          this.searchResult = searchResult
-      });
+
+      this.getResults(searchedContent);
     }
   }
 
+  onPageChanged(newPage: number) {
+    console.log('pl')
+    this.currentPage = newPage;
+    this.getResults(this.searchedContent);
+  }
+
   getResults(searchedContent: string) {
-    return this.resultsService.getList(searchedContent);
+    return this.resultsService
+      .getList(searchedContent, this.currentPage)
+      .subscribe(searchResult => {
+        this.searchResult = searchResult
+    });
   }
 }

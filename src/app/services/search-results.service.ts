@@ -10,7 +10,7 @@ export class SearchResultsService {
   
   constructor(private httpClient: HttpClient) { }
 
-  getList(searchedContent: string): Observable<SearchResult> {
-    return this.httpClient.get<SearchResult>(`/api/search/simple?searchedContent=${searchedContent}&take=10`)
+  getList(searchedContent: string, page: number): Observable<SearchResult> {
+    return this.httpClient.get<SearchResult>(`/api/search/simple?searchedContent=${searchedContent}&take=10&page=${page > 0 ? page : 1}`)
   }
 }

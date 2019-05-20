@@ -9,11 +9,11 @@
     <div class="row">
         <div class="col-md-12">
             <section>
-                <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>
+                <app-search-results [searchHits]="searchResult? searchResult.searchHits : []" ></app-search-results>
             </section>
             
             <section>
-                <app-pagination></app-pagination>
+                <app-pagination (pageChanged)="onPageChanged($event)"></app-pagination>
             </section>
         </div>
     </div>

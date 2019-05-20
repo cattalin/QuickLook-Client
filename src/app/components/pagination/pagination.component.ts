@@ -1,5 +1,5 @@
 import { Paginator } from './../../models/paginator';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
+  @Output() pageChanged = new EventEmitter<number>();
   private paginator: Paginator;
   constructor() { }
 
@@ -20,6 +21,7 @@ export class PaginationComponent implements OnInit {
 
   setPage(newCurrentPage){
     this.paginator.currentPage = newCurrentPage;
+    this.pageChanged.emit(newCurrentPage);
   }
 
 }
