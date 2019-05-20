@@ -8,17 +8,24 @@
   <links>
     <ul class="navbar-nav mr-auto w-100">
       <li class="search-container">
-        <input type="search" id="search" class="form-control input-lg" placeholder="What will I wear today?">
+        <input 
+          [(ngModel)]="searchedContent"
+          (keyup.enter) = "onSearch()"
+          type="search" id="search" 
+          class="form-control input-lg"
+          placeholder="What are you searching?">
       </li>
       <li>
-        <img src="assets/images/search.png" alt="search" class="ml-3 search-icon">
+        <img src="assets/images/search.png" 
+          alt="search" class="ml-3 search-icon"
+          (click)="onSearch()">
       </li>
     </ul>
   </links>
-  <!-- Collapsible content -->
 
+  <!-- Collapsible content -->
   <app-login></app-login>
   <app-register></app-register>
-  
+
 </mdb-navbar>
-<!--/.Navbar--> 
+<!--/.Navbar-->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  searchedContent: string;
+  @Output() searchStarted = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSearch() {
+    console.log(this.searchedContent)
+    this.searchStarted.emit(this.searchedContent);
+  }
+  
 }

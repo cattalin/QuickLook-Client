@@ -1,15 +1,12 @@
 <div class="row">
     <div class="col-12 background-black">
-        <app-navbar></app-navbar>
+        <app-navbar (searchStarted)="onSearchStarted($event)"></app-navbar>
     </div>
 </div>
 
 <div class="container-fluid mt-5">
     
     <div class="row">
-        <!-- <div class="col-md-4 col-lg-2">
-            
-        </div> -->
         <div class="col-md-12">
             <section>
                 <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>

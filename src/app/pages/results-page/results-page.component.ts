@@ -1,8 +1,6 @@
-import { LoginComponent } from './../../components/login/login.component';
-// import { MDBModalRef, MDBModalService } from 'ng-uikit-pro-standard';
 import { SearchResult } from '@app/models/search-result';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SearchResultsService } from '@app/services/search-results.service';
 
 @Component({
@@ -12,30 +10,43 @@ import { SearchResultsService } from '@app/services/search-results.service';
 })
 export class ResultsPageComponent implements OnInit {
 
-  private searchResult: SearchResult;
-  private searchedContent: string;
+  searchResult: SearchResult;
+  searchedContent: string;
 
   constructor(
     private resultsService: SearchResultsService,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) {
 
   }
 
   ngOnInit() {
-    this.route.queryParams
-      .subscribe(params => {
-        this.searchedContent = params.searchedContent;
-        this.getResults(this.searchedContent)
-          .subscribe(searchResult => {
-            console.log(searchResult)
-            this.searchResult = searchResult}
-            );
-      });
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.searchedContent = params.searchedContent;
+      this.getResults(this.searchedContent)
+        .subscribe(searchResult => {
+          this.searchResult = searchResult
+        });
+    });
+  }
 
+  onSearchStarted(searchedContent: string) {
+    if (searchedContent != null && searchedContent != "") {
+      this.router.navigate([], {
+          relativeTo: this.activatedRoute,
+          queryParams: { searchedContent: searchedContent }, 
+          queryParamsHandling: "merge", 
+      })
+      
+      this.getResults(searchedContent)
+        .subscribe(searchResult => {
+          this.searchResult = searchResult
+      });
+    }
   }
 
   getResults(searchedContent: string) {
-    return this.resultsService.getList(this.searchedContent || "");
+    return this.resultsService.getList(searchedContent);
   }
 }
