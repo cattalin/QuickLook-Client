@@ -42,7 +42,7 @@ export class ResultsPageComponent implements OnInit {
   }
 
   onPageChanged(newPage: number) {
-    console.log('pl')
+    console.log(newPage);
     this.currentPage = newPage;
     this.getResults(this.searchedContent);
   }
@@ -51,6 +51,8 @@ export class ResultsPageComponent implements OnInit {
     return this.resultsService
       .getList(searchedContent, this.currentPage)
       .subscribe(searchResult => {
+        console.log(Math.ceil(searchResult.searchMetadata.total));
+
         this.searchResult = searchResult
     });
   }

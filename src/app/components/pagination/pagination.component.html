@@ -5,7 +5,8 @@
     <li [ngClass]="{disabled:paginator.currentPage === 1}">
         <a (click)="setPage(paginator.currentPage - 1)">Previous</a>
     </li>
-    <li *ngFor="let page of paginator.pages" [ngClass]="{active:paginator.currentPage === page}">
+    <li *ngFor="let page of paginator.pages" 
+        [ngClass]="{active:paginator.currentPage === page}">
         <a (click)="setPage(page)">{{page}}</a>
     </li>
     <li [ngClass]="{disabled:paginator.currentPage === paginator.totalPages}">
@@ -19,23 +20,17 @@
 
 <nav aria-label="Results pagination">
     <ul class="pagination pagination-circle pg-blue justify-content-center">
-        <li class="page-item disabled">
-            <a 
-              (click)="setPage(paginator.currentPage - 1)"
-              class="page-link" 
-              tabindex="-1" 
-              mdbWavesEffect>Previous</a>
+        <li [ngClass]="{disabled:paginator.currentPage === 1}"
+            class="page-item">
+            <a (click)="setPage(paginator.currentPage - 1)" class="page-link" tabindex="-1" mdbWavesEffect>Previous</a>
         </li>
-        <li class="page-item active">
-            <a (click)="setPage(1)" class="page-link" mdbWavesEffect>1</a>
+        <li *ngFor="let page of paginator.pages" 
+            [ngClass]="{active:paginator.currentPage === page}"
+            class="page-item">
+            <a (click)="setPage(page)" class="page-link" mdbWavesEffect>{{page}}</a>
         </li>
-        <li class="page-item">
-            <a (click)="setPage(2)" class="page-link" mdbWavesEffect>2</a>
-        </li>
-        <li class="page-item">
-            <a (click)="setPage(3)" class="page-link" mdbWavesEffect>3</a>
-        </li>
-        <li class="page-item">
+        <li [ngClass]="{disabled:paginator.currentPage === totalPages}"
+            class="page-item">
             <a (click)="setPage(paginator.currentPage + 1)" class="page-link" mdbWavesEffect>Next</a>
         </li>
     </ul>

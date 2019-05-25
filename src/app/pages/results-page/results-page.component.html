@@ -13,7 +13,7 @@
             </section>
             
             <section>
-                <app-pagination (pageChanged)="onPageChanged($event)"></app-pagination>
+                <app-pagination (pageChanged)="onPageChanged($event)" [totalPages]="searchResult.searchMetadata.total/20"></app-pagination>
             </section>
         </div>
     </div>
