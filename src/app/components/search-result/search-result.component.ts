@@ -1,3 +1,4 @@
+import { GlobalService } from './../../services/global.service';
 import { SearchHit } from './../../models/search-hit';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,9 +11,15 @@ export class SearchResultComponent implements OnInit {
 
   @Input() searchHit: SearchHit;
 
-  constructor() { }
+  constructor(
+    private globalService: GlobalService
+  ) { }
 
   ngOnInit() {
   }
 
+  onPreviewClicked(){
+    this.globalService.triggerPreviewLink(this.searchHit.url);
+    document.getElementById("pulanpizda").click();
+  }
 }

@@ -1,23 +1,29 @@
 <mdb-card class="mb-4">
 
-        <!--Card content-->
-        <mdb-card-body>
+    <!--Card content-->
+    <mdb-card-body>
 
-            <!--Title-->
-            <mdb-card-title>
-                <h5> {{ searchHit.title }}</h5>
+        <!--Title-->
+        <mdb-card-title>
+            <h5> {{ searchHit.title }}</h5>
 
-                <span class="color-og"> {{ searchHit.url }}</span>
-            </mdb-card-title>
-            <hr>
-            
-            <!--Text-->
-            <mdb-card-text class="mb-0">
-                <div *ngFor="let highlight of searchHit.highlights" class="">
-                    {{highlight}}
-                </div>
-            </mdb-card-text>
+            <span >
+                <a class="color-og" href="searchHit.url">{{searchHit.url}}</a>
+            </span>
+        </mdb-card-title>
+        <hr>
 
-        </mdb-card-body>
+        <!--Text-->
+        <mdb-card-text class="mb-0">
+            <div *ngFor="let highlight of searchHit.highlights" class="">
+                {{highlight}}
+            </div>
+        </mdb-card-text>
+
+        <button mdbBtn type="button" color="default" rounded="true" mdbWavesEffect (click)="onPreviewClicked()"
+            mdbWavesEffect>Preview</button>
+    </mdb-card-body>
+
 
 </mdb-card>
+<img src="https://img.icons8.com/dusk/64/000000/pin.png">

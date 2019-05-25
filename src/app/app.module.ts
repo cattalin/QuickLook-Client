@@ -1,3 +1,4 @@
+import { GlobalService } from './services/global.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -21,6 +22,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PreviewModalComponent } from './components/preview-modal/preview-modal/preview-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -55,8 +57,9 @@ const routes: Routes = [
     SidebarComponent,
     LoginComponent,
     RegisterComponent,
+    PreviewModalComponent,
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
