@@ -9,7 +9,7 @@
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        <iframe class="w-100 h-100" [src]="sanitizedUrl">
+        <iframe class="w-100 h-100" [src]="previewUrl | safeUrl">
         </iframe>
       </div>
       <div class="modal-footer">

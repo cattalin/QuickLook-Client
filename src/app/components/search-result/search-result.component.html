@@ -16,7 +16,7 @@
         <!--Text-->
         <mdb-card-text class="mb-0">
             <div *ngFor="let highlight of searchHit.highlights" class="">
-                {{highlight}}
+                <div [innerHTML]="highlight | safeHtml"></div>
             </div>
         </mdb-card-text>
 

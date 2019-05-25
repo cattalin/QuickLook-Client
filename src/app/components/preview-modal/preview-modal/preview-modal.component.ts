@@ -11,33 +11,21 @@ import { Subscription } from 'rxjs';
 export class PreviewModalComponent implements OnInit, OnDestroy {
 
   previewUrl: string = "https://mdbootstrap.com/docs/angular/forms/checkbox/";
-  sanitizedUrl: SafeUrl;
 
   subscriber: Subscription;
   constructor(
     private globalService: GlobalService,
-    private sanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
     this.subscriber = this.globalService.previewLink$.subscribe(
       res => {
-        console.log(res);
         this.previewUrl = res;
-        this.sanitizedUrl = this.cleanURL(res);
       }
     );
   }
 
   ngOnDestroy(){
-    console.log('123')
     this.subscriber.unsubscribe();
-  }
-
-  cleanURL(url): SafeUrl {
-    console.log(url);
-    console.log(this.sanitizer.bypassSecurityTrustResourceUrl(url))
-    // return new MySafeUrl();
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

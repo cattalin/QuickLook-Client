@@ -23,6 +23,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PreviewModalComponent } from './components/preview-modal/preview-modal/preview-modal.component';
+import { SafeUrlPipe } from './pipes/safe-url.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -58,6 +60,8 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     PreviewModalComponent,
+    SafeUrlPipe,
+    SafeHtmlPipe,
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent],
