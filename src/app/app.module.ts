@@ -25,6 +25,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PreviewModalComponent } from './components/preview-modal/preview-modal/preview-modal.component';
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -62,6 +63,7 @@ const routes: Routes = [
     PreviewModalComponent,
     SafeUrlPipe,
     SafeHtmlPipe,
+    SpinnerComponent,
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent],

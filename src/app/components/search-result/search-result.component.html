@@ -6,7 +6,7 @@
         <!--Title-->
         <mdb-card-title>
             <h5> {{ searchHit.title }}</h5>
-
+            <img src="https://img.icons8.com/dusk/64/000000/pin.png">
             <span >
                 <a class="color-og" [href]="searchHit.url">{{searchHit.url}}</a>
             </span>
@@ -23,6 +23,5 @@
         <button mdbBtn type="button" color="default" rounded="true" mdbWavesEffect (click)="onPreviewClicked()"
             mdbWavesEffect>Preview</button>
             
-        <img src="https://img.icons8.com/dusk/64/000000/pin.png">
     </mdb-card-body>
 </mdb-card>

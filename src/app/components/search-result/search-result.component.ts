@@ -20,6 +20,6 @@ export class SearchResultComponent implements OnInit {
 
   onPreviewClicked(){
     this.globalService.triggerPreviewLink(this.searchHit.url);
-    document.getElementById("pulanpizda").click();
+    document.getElementById("trigger-preview-modal").click();
   }
 }
