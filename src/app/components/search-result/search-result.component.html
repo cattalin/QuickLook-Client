@@ -5,11 +5,23 @@
 
         <!--Title-->
         <mdb-card-title>
-            <h5> {{ searchHit.title }}</h5>
-            <img src="https://img.icons8.com/dusk/64/000000/pin.png">
-            <span >
-                <a class="color-og" [href]="searchHit.url">{{searchHit.url}}</a>
-            </span>
+<div class="row">
+        <div class="col-sm-10">
+                <h5> {{ searchHit.title }}</h5>
+                <span >
+                        <a class="color-og" [href]="searchHit.url">{{searchHit.url}}</a>
+                </span>
+            </div>
+            <div class="col-sm-2 text-right">
+                <img src="https://img.icons8.com/dusk/64/000000/pin.png" class="pin">
+            </div>
+
+</div>
+           
+
+            
+            
+            
         </mdb-card-title>
         <hr>
 
@@ -20,7 +32,7 @@
             </div>
         </mdb-card-text>
 
-        <button mdbBtn type="button" color="default" rounded="true" mdbWavesEffect (click)="onPreviewClicked()"
+        <button mdbBtn type="button" color="default" rounded="true" class="preview" mdbWavesEffect (click)="onPreviewClicked()"
             mdbWavesEffect>Preview</button>
             
     </mdb-card-body>

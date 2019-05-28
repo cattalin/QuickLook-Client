@@ -13,6 +13,7 @@ export class ResultsPageComponent implements OnInit {
   searchResult: SearchResult;
   searchedContent: string;
   currentPage: number;
+  loading: boolean = true;
 
   constructor(
     private resultsService: SearchResultsService,
@@ -52,7 +53,11 @@ export class ResultsPageComponent implements OnInit {
       .getList(searchedContent, this.currentPage)
       .subscribe(searchResult => {
         console.log(Math.ceil(searchResult.searchMetadata.total));
+        setTimeout(()=>{
+          this.loading = false;
+        },1000)
 
+        
         this.searchResult = searchResult
     });
   }

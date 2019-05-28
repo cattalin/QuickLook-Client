@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchResultsService {
-  
+
   constructor(private httpClient: HttpClient) { }
 
   getList(searchedContent: string, page: number): Observable<SearchResult> {
