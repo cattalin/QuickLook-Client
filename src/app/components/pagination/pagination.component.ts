@@ -21,9 +21,10 @@ export class PaginationComponent implements OnInit {
   }
 
   setPage(newCurrentPage) {
-    this.paginator.currentPage = newCurrentPage;
-    this.recalculatePages(newCurrentPage);
+    console.log(newCurrentPage)
     this.pageChanged.emit(newCurrentPage);
+    this.recalculatePages(newCurrentPage);
+    this.paginator.currentPage = newCurrentPage;
   }
 
   recalculatePages(newCurrentPage) {
@@ -31,14 +32,14 @@ export class PaginationComponent implements OnInit {
       this.paginator.pages.shift();
 
       if (this.paginator.pages[3] < this.totalPages) {
-        this.paginator.pages.push(this.paginator.pages[3]+1);
+        this.paginator.pages.push(this.paginator.pages[3] + 1);
       }
     }
     else if (newCurrentPage < this.paginator.pages[2]) {
-      
+
       if (this.paginator.pages[0] > 1) {
         this.paginator.pages.pop();
-        this.paginator.pages.unshift(this.paginator.pages[0]-1);
+        this.paginator.pages.unshift(this.paginator.pages[0] - 1);
       }
     }
   }

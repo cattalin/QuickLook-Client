@@ -1,12 +1,11 @@
-
-
 <div mdbModal #loginModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Login Modal"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
         <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
-        <button type="button" class="close pull-right" aria-label="Close" id="login-modal-close" (click)="loginModal.hide()">
+        <button type="button" class="close pull-right" aria-label="Close" id="login-modal-close"
+          (click)="loginModal.hide()">
           <span aria-hidden="true">×</span>
         </button>
       </div>
@@ -32,7 +31,6 @@
   </div>
 </div>
 
-<div class="text-center">
-  <button type="button" class="btn btn-sm btn-warning btn-rounded" data-toggle="modal" rounded="true"
-    (click)="loginModal.show()">Login</button>
+<div class="text-left">
+  <p class="login" id="login-trigger" (click)="loginModal.show()" data-toggle="modal">Login</p>
 </div>

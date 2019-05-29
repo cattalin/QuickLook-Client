@@ -22,14 +22,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   login() {
     let loginModel = new LoginModel()
     loginModel.username = this.username;
     loginModel.password = this.password;
-    
+
     this.authService.login(loginModel).subscribe(
       res => {
         document.getElementById("login-modal-close").click();
@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
         //   this.sessionService.setCurrentUser(profile);
         //   // this.router.navigateByUrl(this.returnUrl);
         // })
-    }, 
+      },
       err => {
         this.toastr.error("Register failed");
-    });
+      });
   }
 }

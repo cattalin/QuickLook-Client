@@ -43,22 +43,18 @@ export class ResultsPageComponent implements OnInit {
   }
 
   onPageChanged(newPage: number) {
-    console.log(newPage);
     this.currentPage = newPage;
     this.getResults(this.searchedContent);
   }
 
   getResults(searchedContent: string) {
+    this.loading = true;
     return this.resultsService
       .getList(searchedContent, this.currentPage)
       .subscribe(searchResult => {
         console.log(Math.ceil(searchResult.searchMetadata.total));
-        setTimeout(()=>{
-          this.loading = false;
-        },1000)
-
-        
+        this.loading = false;
         this.searchResult = searchResult
-    });
+      });
   }
 }

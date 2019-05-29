@@ -6,3 +6,14 @@
 //     align-items: center;
 // }
 
+
+.input-group.md-form.form-sm.form input {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border: 1px solid #bdbdbd;
+    background-color : white;
+}
+
+.search-icon {
+    max-width: 39px;
+}
