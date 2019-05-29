@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <section>
                 <div class="container">
-                    <div class="input-group md-form form-sm form pl-0">
+                    <div class="input-group md-form form-sm form pl-0 mb-2">
                         <input [(ngModel)]="searchedContent" (keyup.enter)="getResults(searchedContent)"
                             class="form-control my-0" type="text" placeholder="Search" aria-label="Search">
                         <div class="input-group-append" (click)="getResults(searchedContent)">
@@ -16,9 +16,24 @@
                                     (click)="onSearch()">
                             </span>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <!-- <input [(ngModel)]="searchedContent" (keyup.enter)="onSearch()" type="search" id="search"
-                            class="form-control input-lg" placeholder="What are you searching?"> -->
+            <section>
+                <div class="container">
+
+                    <div class="text-center mb-3">
+                        <span color="primary" (click)="test.toggle()" class="pointer">
+                            Advanced <i class="fas fa-caret-down pointer"></i>
+                        </span>
+                    </div>
+
+
+                    <div class="" mdbCollapse #test="bs-collapse">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid. Nihil anim
+                            keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
                     </div>
                 </div>
             </section>
