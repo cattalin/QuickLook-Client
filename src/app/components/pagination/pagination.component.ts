@@ -21,7 +21,6 @@ export class PaginationComponent implements OnInit {
   }
 
   setPage(newCurrentPage) {
-    console.log(newCurrentPage)
     this.pageChanged.emit(newCurrentPage);
     this.recalculatePages(newCurrentPage);
     this.paginator.currentPage = newCurrentPage;

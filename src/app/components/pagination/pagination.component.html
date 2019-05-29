@@ -1,16 +1,13 @@
 <nav aria-label="Results pagination">
     <ul class="pagination pagination-circle pg-blue justify-content-center">
-        <li [ngClass]="{disabled:paginator.currentPage === 1}"
-            class="page-item">
+        <li [ngClass]="{disabled:paginator.currentPage === 1}" class="page-item">
             <a (click)="setPage(paginator.currentPage - 1)" class="page-link" tabindex="-1" mdbWavesEffect>Previous</a>
         </li>
-        <li *ngFor="let page of paginator.pages" 
-            [ngClass]="{active:paginator.currentPage === page}"
-            class="page-item">
+        <li *ngFor="let page of paginator.pages" class=""
+            [ngClass]="paginator.currentPage == page ? 'page-item active':'page-item'">
             <a (click)="setPage(page)" class="page-link" mdbWavesEffect>{{page}}</a>
         </li>
-        <li [ngClass]="{disabled:paginator.currentPage === totalPages}"
-            class="page-item">
+        <li [ngClass]="{disabled:paginator.currentPage === totalPages}" class="page-item">
             <a (click)="setPage(paginator.currentPage + 1)" class="page-link" mdbWavesEffect>Next</a>
         </li>
     </ul>

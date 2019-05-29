@@ -38,13 +38,13 @@
                 </div>
             </section>
 
-            <section *ngIf="!loading">
+            <section [hidden]="loading">
                 <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>
             </section>
 
-            <section *ngIf="!loading">
+            <section [hidden]="loading">
                 <app-pagination (pageChanged)="onPageChanged($event)"
-                    [totalPages]="searchResult.searchMetadata.total/20"></app-pagination>
+                    [totalPages]="searchResult?.searchMetadata.total/20"></app-pagination>
             </section>
 
             <app-preview-modal></app-preview-modal>
