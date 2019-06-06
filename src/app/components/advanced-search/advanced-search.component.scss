@@ -1,0 +1,35 @@
+.fas {
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.fa-plus {
+    color: green;
+}
+
+.fa-minus {
+    color: red;
+}
+
+.fa-language {
+    font-size: 23px;
+    color: cornflowerblue;
+}
+
+.dropdown-menu {
+    min-width: 100px !important;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dropdown-item {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.current-language {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #e87d55;
+    font-weight: bold;
+}

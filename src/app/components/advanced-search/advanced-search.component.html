@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="text-center mb-3">
+    <span color="primary" (click)="test.toggle(); showAdvanced = !showAdvanced" class="pointer">
+      Advanced <i class="fas pointer" [ngClass]="showAdvanced ? 'fa-caret-up':'fa-caret-down'"></i>
+    </span>
+  </div>
+
+  <div class="mb-4" mdbCollapse #test="bs-collapse">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="d-flex">
+          <mdb-checkbox [default]="true">Exact words</mdb-checkbox>
+          <mdb-checkbox [default]="true" class="ml-4">Exact sentence</mdb-checkbox>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4 text-right">
+        <mdb-checkbox [default]="true">Uncrawled websites</mdb-checkbox>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-sm-6">
+        <span>Fuzziness: {{fuzziness}}</span>
+        <i class="fas fa-plus ml-2" (click)="increaseFuziness()"></i>
+        <i class="fas fa-minus ml-2" (click)="decreaseFuzziness()"></i>
+      </div>
+      <div class="col-sm-6 text-right">
+        <div class="btn-group" mdbDropdown>
+          <a mdbDropdownToggle type="button" mdbWavesEffect>
+            <span class="current-language">{{selectedLanguage.name}}</span> <i class="fas fa-language"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-left">
+            <span *ngFor="let lang of languages" class="dropdown-item"
+              (click)="selectedLanguage=lang">{{lang.name}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -26,6 +26,7 @@ import { PreviewModalComponent } from './components/preview-modal/preview-modal/
 import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -64,6 +65,7 @@ const routes: Routes = [
     SafeUrlPipe,
     SafeHtmlPipe,
     SpinnerComponent,
+    AdvancedSearchComponent,
   ],
   providers: [GlobalService],
   bootstrap: [AppComponent],
