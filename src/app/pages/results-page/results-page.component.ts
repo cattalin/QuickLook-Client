@@ -1,3 +1,5 @@
+import { AdvancedSearchStore } from '@app/services/advanced-search.store.service';
+import { AdvancedSearchComponent } from './../../components/advanced-search/advanced-search.component';
 import { SearchResult } from '@app/models/search-result';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,6 +21,7 @@ export class ResultsPageComponent implements OnInit {
     private resultsService: SearchResultsService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    public searchStore: AdvancedSearchStore,
   ) {
 
   }

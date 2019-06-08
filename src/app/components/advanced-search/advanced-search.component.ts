@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdvancedSearchStore } from '@app/services/advanced-search.store.service';
+import { Languages } from '@app/utils/languages';
 
 @Component({
   selector: 'app-advanced-search',
@@ -6,41 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advanced-search.component.scss']
 })
 export class AdvancedSearchComponent implements OnInit {
-
-  fuzziness: number = 1; // [0-5]
-  showAdvanced: boolean = false;
-  languages = [
-    {
-      id: 1,
-      name: 'English'
-    },
-    {
-      id: 2,
-      name: 'Français'
-    },
-    {
-      id: 3,
-      name: 'Deutsch'
-    },
-    {
-      id: 4,
-      name: 'Română'
-    }
-  ];
   selectedLanguage = null;
+  languages = null;
 
-  constructor() { }
+  constructor(private searchStore: AdvancedSearchStore) { }
 
   ngOnInit() {
-    this.selectedLanguage = this.languages[0];
+    this.languages = Languages;
+    this.selectedLanguage = Languages[0];
   }
 
-  increaseFuziness() {
-    this.fuzziness = this.fuzziness === 5 ? this.fuzziness : this.fuzziness + 1;
+  updateLanguage(newSelection) {
+    this.selectedLanguage = newSelection;
+    this.searchStore.updateLanguage(newSelection);
   }
-
-  decreaseFuzziness() {
-    this.fuzziness = this.fuzziness === 0 ? this.fuzziness : this.fuzziness - 1;
-  }
-
 }

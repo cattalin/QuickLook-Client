@@ -4,11 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { MobxAngularModule } from 'mobx-angular';
 
 import { ToastrModule } from 'ngx-toastr';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+
 import { HomePageComponent } from './pages/homepage/homepage.component';
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
@@ -27,6 +28,7 @@ import { SafeUrlPipe } from './pipes/safe-url.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { AdvancedSearchStore } from './services/advanced-search.store.service';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -45,13 +47,14 @@ const routes: Routes = [
     ),
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MobxAngularModule,
   ],
   declarations: [
     HomePageComponent,
     ResultsPageComponent,
     NotFoundPageComponent,
-    
+
     AppComponent,
     NavbarComponent,
     SearchbarComponent,
@@ -67,7 +70,7 @@ const routes: Routes = [
     SpinnerComponent,
     AdvancedSearchComponent,
   ],
-  providers: [GlobalService],
+  providers: [GlobalService, AdvancedSearchStore],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
