@@ -22,7 +22,12 @@
             <section>
                 <app-advanced-search></app-advanced-search>
             </section>
-
+            <section [hidden]="loading">
+                <div class="container">
+                    Search results for {{searchResult.searchMetadata.searchedContent.input}} - Found
+                    {{searchResult.searchMetadata.total}} results in {{searchResult.searchMetadata.took}} ms
+                </div>
+            </section>
             <section [hidden]="loading">
                 <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>
             </section>
