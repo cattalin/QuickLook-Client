@@ -1,7 +1,6 @@
 import { observable, action } from 'mobx-angular';
 import { SearchAdvancedQuery } from '@app/models/search-advanced-query';
 import { Injectable } from '@angular/core';
-import { Languages } from '@app/utils/languages';
 
 @Injectable()
 export class AdvancedSearchStore {
@@ -12,8 +11,10 @@ export class AdvancedSearchStore {
         this.searchQuery.language = 'en';
         this.searchQuery.fuzziness = 1;
         this.searchQuery.isAdvancedSearch = false;
-        this.searchQuery.matchExactContent = false;
+        this.searchQuery.matchExactSentence = false;
         this.searchQuery.matchExactWords = false;
+        this.searchQuery.page = 1;
+        this.searchQuery.take = 10;
     }
 
     @action toggleAdvancedSearch() {
@@ -25,7 +26,7 @@ export class AdvancedSearchStore {
     }
 
     @action toggleMatchExactSentence() {
-        this.searchQuery.matchExactContent = !this.searchQuery.matchExactContent;
+        this.searchQuery.matchExactSentence = !this.searchQuery.matchExactSentence;
     }
 
     @action updateLanguage(newLanguage) {

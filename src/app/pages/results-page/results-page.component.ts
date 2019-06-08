@@ -19,9 +19,9 @@ export class ResultsPageComponent implements OnInit {
 
   constructor(
     private resultsService: SearchResultsService,
+    private searchStore: AdvancedSearchStore,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    public searchStore: AdvancedSearchStore,
   ) {
 
   }
@@ -52,12 +52,24 @@ export class ResultsPageComponent implements OnInit {
 
   getResults(searchedContent: string) {
     this.loading = true;
-    return this.resultsService
-      .getList(searchedContent, this.currentPage)
-      .subscribe(searchResult => {
-        console.log(Math.ceil(searchResult.searchMetadata.total));
-        this.loading = false;
-        this.searchResult = searchResult
-      });
+    if (this.searchStore.searchQuery.isAdvancedSearch) {
+      this.searchStore.searchQuery.searchedContent = searchedContent;
+      return this.resultsService
+        .getAdvancedResults(this.searchStore.searchQuery)
+        .subscribe(searchResult => {
+          console.log(Math.ceil(searchResult.searchMetadata.total));
+          this.loading = false;
+          this.searchResult = searchResult
+        });
+    }
+    else {
+      return this.resultsService
+        .getSimpleResults(searchedContent, this.currentPage)
+        .subscribe(searchResult => {
+          console.log(Math.ceil(searchResult.searchMetadata.total));
+          this.loading = false;
+          this.searchResult = searchResult
+        });
+    }
   }
 }

@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class PreviewModalComponent implements OnInit, OnDestroy {
 
-  previewUrl: string = "https://mdbootstrap.com/docs/angular/forms/checkbox/";
+  previewUrl: string = "";
 
   subscriber: Subscription;
   constructor(
@@ -25,7 +25,10 @@ export class PreviewModalComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy(){
+  resetPreviewUrl() {
+    this.previewUrl = "";
+  }
+  ngOnDestroy() {
     this.subscriber.unsubscribe();
   }
 }
