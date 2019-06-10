@@ -11,6 +11,7 @@ export class SearchResultsComponent implements OnInit {
   @Input()
   private searchHits: SearchHit[];
   private master: string = 'test';
+  @Input() bookmarked: boolean = false;
 
   constructor() { }
 

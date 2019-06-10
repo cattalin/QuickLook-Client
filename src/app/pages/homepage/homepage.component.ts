@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
+  searchedContent: string = '';
+
   constructor(private router: Router) {
 
   }
@@ -15,9 +17,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSearchStarted(searchedContent: string) {
-    if (searchedContent != null && searchedContent != "") {
-      this.router.navigate([`/results`], { queryParams: { searchedContent: searchedContent } })
+  onSearchStarted() {
+    if (this.searchedContent != null && this.searchedContent != "") {
+      this.router.navigate([`/results`], { queryParams: { searchedContent: this.searchedContent } })
     }
   }
 

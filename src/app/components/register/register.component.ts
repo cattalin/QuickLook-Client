@@ -24,21 +24,21 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(){
+  register() {
     let data = new RegisterModel();
     data.username = this.username;
     data.password = this.password;
     data.email = this.email;
-    
+
     this.authenticationService.register(data).subscribe(
       res => {
         document.getElementById("register-modal-close").click();
         this.toastr.success(res.status);
         this.sessionService.setToken(res.token, true);
-    }, 
+      },
       err => {
-      this.toastr.error("Register failed");
-    })
+        this.toastr.error("Register failed");
+      })
   }
 
 }

@@ -1,19 +1,29 @@
-// .search-container {
-//     margin-bottom: 15%;
-// }
+.input-group.md-form.form-sm.form input {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border: 1px solid #bdbdbd;
+    background-color : white;
+}
 
-// .search-logo {
-//     width: 45%;
-// }
+.search-icon {
+    max-width: 39px;
+}
 
-// .vertical-center {
-//     min-height: 100%;
-//     min-height: 100vh;
-//     background-color: #f7f7f7;
-//     display: flex;
-//     align-items: center;
-// }
+.jumbotron {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
 
+img {
+    width: 400px;
+}
 
+.search-container {
+    margin-bottom: 40vh;
+}
 
-
+.input-group {
+    width: 80%;
+    margin: auto;
+}

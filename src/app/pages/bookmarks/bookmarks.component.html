@@ -1,0 +1,22 @@
+<div class="container mt-4 pb-5">
+
+  <div class="row mb-3">
+    <div class="col-sm-12 text-center">
+      <h4>Your Bookmarks</h4>
+    </div>
+  </div>
+
+  <section [hidden]="loading">
+    <app-search-results [searchHits]="bookmarks" [bookmarked]="true"></app-search-results>
+  </section>
+
+  <div class="row mb-3" *ngIf="bookmarks?.length==0">
+    <div class="col-sm-12 text-center">
+      <h5>None found</h5>
+    </div>
+  </div>
+
+
+  <app-spinner *ngIf="loading"></app-spinner>
+
+</div>

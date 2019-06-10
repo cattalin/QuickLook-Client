@@ -1,7 +1,5 @@
 <div class="container">
   <div *ngFor="let searchHit of searchHits">
-    <app-search-result [searchHit]="searchHit"></app-search-result>
+    <app-search-result [searchHit]="searchHit" [bookmarked]="bookmarked"></app-search-result>
   </div>
 </div>
-
-

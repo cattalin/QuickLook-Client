@@ -1,3 +1,5 @@
+import { TokenInterceptor } from './services/auth-interceptor.service';
+import { AuthInterceptorComponent } from './services/auth-interceptor/auth-interceptor.component';
 import { GlobalService } from './services/global.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -5,6 +7,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MobxAngularModule } from 'mobx-angular';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -29,11 +32,15 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { AdvancedSearchStore } from './services/advanced-search.store.service';
+import { TokenInterceptor } from './services/auth-interceptor.service';
+import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'results', component: ResultsPageComponent },
   { path: 'results/:searchedContent', component: ResultsPageComponent },
+  { path: 'bookmarks', component: BookmarksComponent, canActivate: [AuthGuardService] },
   { path: '**', component: NotFoundPageComponent },
 ]
 
@@ -69,8 +76,14 @@ const routes: Routes = [
     SafeHtmlPipe,
     SpinnerComponent,
     AdvancedSearchComponent,
+    BookmarksComponent,
   ],
-  providers: [GlobalService, AdvancedSearchStore],
+  providers: [GlobalService, AdvancedSearchStore, AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

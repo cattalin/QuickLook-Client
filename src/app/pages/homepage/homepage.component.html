@@ -4,7 +4,18 @@
     <a>
       <img class="search-logo mb-5" src="../../../assets/images/large-logo.png" alt="logo" />
     </a>
-    <!-- <app-searchbar (searchStarted)="onSearchStarted($event)"></app-searchbar> -->
+    <div>
+      <div class="input-group md-form form-sm form pl-0 mb-2">
+        <input [(ngModel)]="searchedContent" (keyup.enter)="onSearchStarted()" class="form-control my-0" type="text"
+          placeholder="Search" aria-label="Search">
+
+        <div class="input-group-append" (click)="getResults(searchedContent)">
+          <span class="input-group-text white" id="basic-text1">
+            <img src="assets/images/small-logo.png" alt="search" class="search-icon" (click)="onSearchStarted()">
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

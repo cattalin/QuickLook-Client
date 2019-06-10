@@ -29,14 +29,14 @@
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!sessionService.isLoggedIn()">
         <a class="nav-link waves-light" mdbWavesEffect (click)="showLogin()">
           <i class="fas fa-fingerprint"></i>
           Login
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!sessionService.isLoggedIn()">
         <a class="nav-link waves-light" mdbWavesEffect (click)="showRegister()">
           <i class="fas fa-user-plus"></i>
           Register
@@ -44,15 +44,15 @@
       </li>
 
       <!-- Dropdown -->
-      <li class="nav-item dropdown" dropdown>
+      <li class="nav-item dropdown" dropdown *ngIf="sessionService.isLoggedIn()">
         <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
           <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span>
         </a>
         <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect>
-            asd
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="router.navigate(['bookmarks'])">
+            Bookmarks
           </a>
-          <a class="dropdown-item waves-light" mdbWavesEffect>Log out</a>
+          <a class="dropdown-item waves-light" mdbWavesEffect (click)="sessionService.logout()">Log out</a>
         </div>
       </li>
 

@@ -1,20 +1,31 @@
-<div class="background-black">
-    <app-navbar></app-navbar>
-</div>
-
-<div class="container-fluid">
+<div class="container-fluid" [hidden]="loading">
     <div class="row">
         <div class="col-md-12">
             <section>
                 <div class="container">
                     <div class="input-group md-form form-sm form pl-0 mb-2">
                         <input [(ngModel)]="searchedContent" (keyup.enter)="getResults(searchedContent)"
-                            class="form-control my-0" type="text" placeholder="Search" aria-label="Search">
+                            class="form-control my-0" type="text" placeholder="Search" aria-label="Search"
+                            (focusout)="searchLostFocusEv()" (focus)="searchLostFocus = false"
+                            (keypress)="getSuggestions($event)">
+
                         <div class="input-group-append" (click)="getResults(searchedContent)">
                             <span class="input-group-text white" id="basic-text1">
                                 <img src="assets/images/small-logo.png" alt="search" class="search-icon"
                                     (click)="onSearch()">
                             </span>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf="(searchedContent?.length && suggestions?.length) || !searchLostFocus">
+                        <div class="col-sm-12">
+                            <ul class="list-group" (focusout)="searchLostFocus = true"
+                                (focus)="searchLostFocus = false">
+                                <li *ngFor="let suggestion of suggestions" class="list-group-item"
+                                    (click)="selectSuggestion(suggestion.suggestion)">
+                                    {{suggestion.suggestion}}
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -23,13 +34,21 @@
                 <app-advanced-search></app-advanced-search>
             </section>
             <section [hidden]="loading">
-                <div class="container">
-                    Search results for {{searchResult.searchMetadata.searchedContent.input}} - Found
-                    {{searchResult.searchMetadata.total}} results in {{searchResult.searchMetadata.took}} ms
+                <div class="container" *ngIf="lastSearchInput?.length > 0">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            Search results for {{lastSearchInput}}
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            Found
+                            {{searchResult?.searchMetadata?.total}} results in {{searchResult?.searchMetadata.took}} ms
+                        </div>
+                    </div>
+
                 </div>
             </section>
             <section [hidden]="loading">
-                <app-search-results [searchHits]="searchResult? searchResult.searchHits : []"></app-search-results>
+                <app-search-results [searchHits]="searchResult ? searchResult.searchHits : []"></app-search-results>
             </section>
 
             <section [hidden]="loading">

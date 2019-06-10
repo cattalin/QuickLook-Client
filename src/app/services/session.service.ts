@@ -11,12 +11,12 @@ export class SessionService {
   ) { }
 
   public setToken(token, rememberMe) {
-    if(rememberMe) window.localStorage['auth-token'] = token;
+    if (rememberMe) window.localStorage['auth-token'] = token;
     else window.sessionStorage['auth-token'] = token;
   }
 
   public isLoggedIn() {
-    return window.localStorage['auth-token'] ||  window.sessionStorage['auth-token'];
+    return window.localStorage['auth-token'] || window.sessionStorage['auth-token'];
   }
 
   public setCurrentUser(user) {

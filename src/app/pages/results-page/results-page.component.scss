@@ -17,3 +17,38 @@
 .search-icon {
     max-width: 39px;
 }
+
+.list-group {
+    position: absolute;
+    z-index: 1000;
+    width: 97%;
+    max-height: 140px;
+    overflow-y: auto;
+    border: 1px solid #eaeaea;
+}
+
+.list-group-item {
+    padding: 5px;
+    font-size: 12px;
+    border: none;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: lightsteelblue;
+    color: white;
+    font-weight: bold;
+}
+
+// .ng-autocomplete {
+//     width: 100%;
+// }
+
+// .input-group-text {
+//     height: 40px;
+//     border: none;
+//     border-radius: 0;
+//     box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+//     background-color: white;
+//     padding-left: 20px;
+// }

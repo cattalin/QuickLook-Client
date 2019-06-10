@@ -18,4 +18,17 @@ export class SearchResultsService {
   getAdvancedResults(searchQuery: SearchAdvancedQuery): Observable<SearchResult> {
     return this.httpClient.post<SearchResult>(`/api/search/advanced`, searchQuery)
   }
+
+  getSuggestions(searchedContent: string): any {
+    return this.httpClient.get(`api/suggestions/completion?=${searchedContent}`);
+  }
+
+  newBookmark(data) {
+    return this.httpClient.post(`/api/bookmarks`, data)
+  }
+
+  getBookmarks(): any {
+    return this.httpClient.get(`/api/bookmarks`);
+  }
+
 }
