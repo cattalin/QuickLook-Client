@@ -39,15 +39,13 @@ export class ResultsPageComponent implements OnInit {
     });
   }
 
-  onSearchStarted(searchedContent: string) {
-    if (searchedContent != null && searchedContent != "") {
+  updateUrlParams() {
+    if (this.searchedContent != null && this.searchedContent != "") {
       this.router.navigate([], {
         relativeTo: this.activatedRoute,
-        queryParams: { searchedContent: searchedContent },
+        queryParams: { searchedContent: this.searchedContent },
         queryParamsHandling: "merge",
       })
-
-      this.getResults(searchedContent);
     }
   }
 
@@ -60,12 +58,12 @@ export class ResultsPageComponent implements OnInit {
     this.loading = true;
     this.lastSearchInput = searchedContent;
     this.suggestions = [];
+    this.updateUrlParams();
     if (this.searchStore.searchQuery.isAdvancedSearch) {
       this.searchStore.searchQuery.searchedContent = this.searchedContent;
       return this.resultsService
         .getAdvancedResults(this.searchStore.searchQuery)
         .subscribe(searchResult => {
-          console.log(Math.ceil(searchResult.searchMetadata.total));
           this.loading = false;
           this.searchResult = searchResult
         });
@@ -74,8 +72,6 @@ export class ResultsPageComponent implements OnInit {
       return this.resultsService
         .getSimpleResults(searchedContent, this.currentPage)
         .subscribe(searchResult => {
-          console.log(Math.ceil(searchResult.searchMetadata.total));
-
           this.loading = false;
           this.searchResult = searchResult
         });
