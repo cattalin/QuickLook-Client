@@ -1,5 +1,4 @@
 import { TokenInterceptor } from './services/auth-interceptor.service';
-import { AuthInterceptorComponent } from './services/auth-interceptor/auth-interceptor.component';
 import { GlobalService } from './services/global.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +31,6 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { AdvancedSearchStore } from './services/advanced-search.store.service';
-import { TokenInterceptor } from './services/auth-interceptor.service';
 import { BookmarksComponent } from './pages/bookmarks/bookmarks.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
