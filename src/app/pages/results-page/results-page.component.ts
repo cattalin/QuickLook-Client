@@ -14,7 +14,6 @@ export class ResultsPageComponent implements OnInit {
   lastSearchInput: string = '';
   searchResult: SearchResult;
   searchedContent: string = '';
-  currentPage: number;
   loading: boolean = true;
   searchLostFocus: boolean = true;
 
@@ -33,6 +32,7 @@ export class ResultsPageComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.activatedRoute.queryParams.subscribe(params => {
+      console.log("plm");
       this.searchedContent = params.searchedContent;
       this.getResults(this.searchedContent);
     });
@@ -48,8 +48,7 @@ export class ResultsPageComponent implements OnInit {
     }
   }
 
-  onPageChanged(newPage: number) {
-    this.currentPage = newPage;
+  onPageChanged() {
     this.getResults(this.searchedContent);
   }
 
@@ -69,7 +68,7 @@ export class ResultsPageComponent implements OnInit {
     }
     else {
       return this.resultsService
-        .getSimpleResults(searchedContent, this.currentPage)
+        .getSimpleResults(searchedContent, this.searchStore.searchQuery.page)
         .subscribe(searchResult => {
           this.loading = false;
           this.searchResult = searchResult
@@ -100,8 +99,4 @@ export class ResultsPageComponent implements OnInit {
   searchLostFocusEv() {
     setTimeout(() => { this.searchLostFocus = true }, 100)
   }
-
-
-
-
 }

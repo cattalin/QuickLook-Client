@@ -1,5 +1,6 @@
 import { Paginator } from './../../models/paginator';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { AdvancedSearchStore } from '@app/services/advanced-search.store.service';
 
 @Component({
   selector: 'app-pagination',
@@ -11,7 +12,9 @@ export class PaginationComponent implements OnInit {
   @Output() pageChanged = new EventEmitter<number>();
   @Input() totalPages: number;
   private paginator: Paginator;
-  constructor() { }
+  constructor(
+    private searchStore: AdvancedSearchStore,
+  ) { }
 
   ngOnInit() {
     this.paginator = new Paginator();
@@ -21,6 +24,7 @@ export class PaginationComponent implements OnInit {
   }
 
   setPage(newCurrentPage) {
+    this.searchStore.updateCurrentPage(newCurrentPage);
     this.pageChanged.emit(newCurrentPage);
     this.recalculatePages(newCurrentPage);
     this.paginator.currentPage = newCurrentPage;

@@ -23,6 +23,9 @@ export class AdvancedSearchStore {
 
     @action toggleMatchExactWords() {
         this.searchQuery.matchExactWords = !this.searchQuery.matchExactWords;
+        if (this.searchQuery.matchExactWords) {
+            this.searchQuery.fuzziness = 0;
+        }
     }
 
     @action toggleMatchExactSentence() {
@@ -31,6 +34,10 @@ export class AdvancedSearchStore {
 
     @action updateLanguage(newLanguage) {
         this.searchQuery.language = newLanguage.key;
+    }
+
+    @action updateCurrentPage(newPage) {
+        this.searchQuery.page = newPage;
     }
 
     @action increaseFuziness() {

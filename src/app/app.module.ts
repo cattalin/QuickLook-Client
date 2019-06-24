@@ -17,7 +17,6 @@ import { ResultsPageComponent } from './pages/results-page/results-page.componen
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { AppComponent } from './app.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
@@ -62,7 +61,6 @@ const routes: Routes = [
 
     AppComponent,
     NavbarComponent,
-    SearchbarComponent,
     SearchResultComponent,
     SearchResultsComponent,
     PaginationComponent,

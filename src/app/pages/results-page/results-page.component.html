@@ -12,7 +12,7 @@
                         <div class="input-group-append" (click)="getResults(searchedContent)">
                             <span class="input-group-text white" id="basic-text1">
                                 <img src="assets/images/small-logo.png" alt="search" class="search-icon"
-                                    (click)="onSearch()">
+                                    (click)="getResults(searchedContent)">
                             </span>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <h5 class="mt-4">Suggestions:</h5>
 
                         <ul style="font-size: 18px;">
-                            <li> Make sure that all words are spelled correctly.</li>
+                            <li>Make sure that all words are spelled correctly.</li>
                             <li>Try different keywords.</li>
                             <li>Try more general keywords.</li>
                         </ul>
