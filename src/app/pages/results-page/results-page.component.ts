@@ -32,9 +32,8 @@ export class ResultsPageComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.activatedRoute.queryParams.subscribe(params => {
-      console.log("plm");
       this.searchedContent = params.searchedContent;
-      this.getResults(this.searchedContent);
+      this.resetPageAndGetRestults(this.searchedContent);
     });
   }
 
@@ -50,6 +49,11 @@ export class ResultsPageComponent implements OnInit {
 
   onPageChanged() {
     this.getResults(this.searchedContent);
+  }
+
+  resetPageAndGetRestults(searchedContent: string) {
+    this.searchStore.updateCurrentPage(1);
+    this.getResults(searchedContent);
   }
 
   getResults(searchedContent: string) {
@@ -92,7 +96,7 @@ export class ResultsPageComponent implements OnInit {
 
   selectSuggestion(suggestion) {
     this.searchedContent = suggestion;
-    this.getResults(this.searchedContent);
+    this.resetPageAndGetRestults(this.searchedContent);
     this.suggestions = [];
   }
 

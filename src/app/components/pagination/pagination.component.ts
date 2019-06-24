@@ -1,5 +1,5 @@
 import { Paginator } from './../../models/paginator';
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Output, EventEmitter, Input } from '@angular/core';
 import { AdvancedSearchStore } from '@app/services/advanced-search.store.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AdvancedSearchStore } from '@app/services/advanced-search.store.service
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnChanges {
 
   @Output() pageChanged = new EventEmitter<number>();
   @Input() totalPages: number;
@@ -21,6 +21,17 @@ export class PaginationComponent implements OnInit {
     this.paginator.pages = [1, 2, 3, 4, 5];
     this.paginator.currentPage = 1;
     this.paginator.totalPages = 5;
+  }
+
+  ngOnChanges() {
+    this.totalPages = Math.ceil(this.totalPages);
+    this.paginator = new Paginator();
+    this.paginator.totalPages = this.totalPages;
+    this.paginator.currentPage = 1;
+    this.paginator.pages = [];
+    for (let i = 1; i <= this.totalPages && i <= 5; i++) {
+      this.paginator.pages.push(i);
+    }
   }
 
   setPage(newCurrentPage) {
