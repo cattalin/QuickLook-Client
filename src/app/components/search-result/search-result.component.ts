@@ -1,3 +1,4 @@
+import { SessionService } from '@app/services/session.service';
 import { GlobalService } from './../../services/global.service';
 import { SearchHit } from './../../models/search-hit';
 import { Component, OnInit, Input } from '@angular/core';
@@ -15,7 +16,8 @@ export class SearchResultComponent implements OnInit {
 
   constructor(
     private globalService: GlobalService,
-    private resultsService: SearchResultsService
+    private resultsService: SearchResultsService,
+    public sessionService: SessionService,
   ) { }
 
   ngOnInit() {

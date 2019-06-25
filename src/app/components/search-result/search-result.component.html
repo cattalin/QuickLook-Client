@@ -12,7 +12,7 @@
                         <a class="color-og result-url" target="_blank" [href]="searchHit.url">{{searchHit.url}}</a>
                     </span>
                 </div>
-                <div class="col-sm-2 text-right">
+                <div class="col-sm-2 text-right" *ngIf="sessionService.isLoggedIn()">
                     <img [src]="bookmarked ? 'assets/images/pinned.png' : 'assets/images/pin.png'"
                         (click)="newBookmark()" class="pin pointer">
                 </div>
